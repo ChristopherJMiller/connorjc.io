@@ -7,6 +7,6 @@ yarn install
 # Run dev server
 yarn dev
 
-# Build css for production
+# Prepare for production
 yarn build
 ```
