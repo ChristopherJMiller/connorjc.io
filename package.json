@@ -6,6 +6,7 @@
   "author": "Christopher Miller <hello@chrismiller.xyz>",
   "license": "MIT",
   "devDependencies": {
+    "@minify-html/node": "^0.11.1",
     "@web/dev-server": "^0.3.0",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
@@ -18,6 +19,8 @@
     "dev": "concurrently -k npm:dev:*",
     "dev:server": "wds --app-index index.html --open --watch",
     "dev:watch": "tailwindcss -i ./main.css -o ./dist/main.css --watch",
-    "build": "postcss ./main.css -o ./dist/main.css"
+    "build": "concurrently npm:build:*",
+    "build:html": "minify-html --output index.min.html index.html",
+    "build:css": "postcss ./main.css -o ./dist/main.css"
   }
 }

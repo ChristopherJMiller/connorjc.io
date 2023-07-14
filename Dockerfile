@@ -10,8 +10,7 @@ RUN yarn install && yarn build
 
 FROM docker.io/nginx:1-alpine
 
-
 COPY --from=web_builder /build/dist /usr/share/nginx/html/dist
-ADD index.html /usr/share/nginx/html/
+COPY --from=web_builder /build/index.min.html /usr/share/nginx/html/index.html
 ADD public /usr/share/nginx/html/public
 ADD nginx.conf /etc/nginx/nginx.conf
